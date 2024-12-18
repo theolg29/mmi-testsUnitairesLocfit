@@ -1,6 +1,6 @@
 const user = require("../models/user");
 
-// Test 1
+// La récupération d'un user par son id
 describe("La récupération d'un user par son id", () => {
   // Cas 1
   it("Regarde si le resultat de la function est definit", () => {
@@ -21,25 +21,19 @@ describe("La récupération d'un user par son id", () => {
   });
 });
 
-
 // Test de getUserByName
 describe("Récupère un user grâce à son name", () => {
-
-    it ("", () => {
-        let name = getUserByName("Jean");
-        expect(name).toBeDefined();
-    });
-
+  it("", () => {
+    let name = user.getUserByName("Jean");
+    expect(name).toBeDefined();
+  });
 });
-
 
 // Test de getAllUsers
 describe("Test de récupération de tous les utlisateurs", () => {
-
-    it ("Vérifie si il y a des utilisateurs", () => {
-        let name = getAllUsers();
-        expect(name).toBeDefined();
-        console.log(name);
-    });
-
+  it("Vérifie si il y a des utilisateurs", () => {
+    let name = user.getAllUsers();
+    expect(name).toBeDefined();
+    console.log(name);
+  });
 });
