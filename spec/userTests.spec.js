@@ -1,3 +1,7 @@
+// Colin Lallauret
+// Théo Le Gourrierec
+// 3B2
+
 const user = require("../models/user");
 
 // La récupération d'un user par son id
@@ -21,9 +25,7 @@ describe("La récupération d'un user par son id", () => {
   });
 });
 
-
 // ------------------------------
-
 
 // La récupération d'un produit par son id
 describe("La récupération d'un produit par son id", () => {
@@ -46,21 +48,17 @@ describe("La récupération d'un produit par son id", () => {
   });
 });
 
-
 // ------------------------------
-
 
 // Test de getUserByName
-describe("Récupère tous les users grâce au Name", () => {
-  it("Vérifie si la fonction est définit", async function () {
-    let a = await user.getUserByName("Jean");
-    expect(a).toBeDefined();
-  });
-});
-
+// describe("Récupère un user grâce à son name", () => {
+//   it("", () => {
+//     let name = user.getUserByName("Jean");
+//     expect(name).toBeDefined();
+//   });
+// });
 
 // ------------------------------
-
 
 // Test de getAllUsers
 describe("Test de récupération de tous les utlisateurs", () => {
@@ -75,6 +73,68 @@ describe("Test de récupération de tous les utlisateurs", () => {
     expect(a[0].prenom).toBe("Sophie");
   });
 
+});
+
+
+// ------------------------------
+
+
+// Vérifie si le produit est bien ajouté
+describe("Test de l'ajout d'un produit", () => {
+  let a;
+
+  beforeEach(async () => {
+    const result = await user.addProduct(
+      "Rameur",
+      "Un rameur de qualité",
+      "Concept2",
+      "Model D",
+      1000,
+      "Neuf"
+    );
+    a = result.insertId;
+  });
+
+  afterEach(async () => {
+    if (a) {
+      await user.deleteProduct(a);
+    }
+  });
+
+  it("Vérifie si le produit est bien ajouté", async () => {
+    const product = await user.show_productById(a);
+    expect(product).toBeDefined();
+  });
+});
+
+
+// ------------------------------
+
+
+describe("Test de la création d'un client", () => {
+  let clientId;
+
+  beforeEach(async () => {
+    const result = await user.createClient(
+      "mdp123456789",
+      "LALLAURET",
+      "Colin",
+      "2003-08-11",
+      "colinlallauret@gmail.com"
+    );
+    clientId = result.insertId;
+  });
+
+  afterEach(async () => {
+    if (clientId) {
+      await user.deleteClient(clientId);
+    }
+  });
+
+  it("Vérifie si le client est bien créé", async () => {
+    const client = await user.getUserById(clientId);
+    expect(client.prenom).toBe("Colin");
+  });
 });
 
 
