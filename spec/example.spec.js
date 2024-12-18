@@ -95,3 +95,31 @@ describe("Test de l'ajout d'un produit", () => {
 });
 
 // ------------------------------
+
+describe("Test de la création d'un client", () => {
+  let clientId;
+
+  beforeEach(async () => {
+    const result = await user.createClient(
+      "mdp123456789",
+      "LALLAURET",
+      "Colin",
+      "2003-08-11",
+      "colinlallauret@gmail.com"
+    );
+    clientId = result.insertId;
+  });
+
+  afterEach(async () => {
+    if (clientId) {
+      await user.deleteClient(clientId);
+    }
+  });
+
+  it("Vérifie si le client est bien créé", async () => {
+    const client = await user.getUserById(clientId);
+    expect(client.prenom).toBe("Colin");
+  });
+});
+
+// ------------------------------
