@@ -21,6 +21,10 @@ describe("La récupération d'un user par son id", () => {
   });
 });
 
+
+// ------------------------------
+
+
 // La récupération d'un produit par son id
 describe("La récupération d'un produit par son id", () => {
   // Cas 1
@@ -42,6 +46,10 @@ describe("La récupération d'un produit par son id", () => {
   });
 });
 
+
+// ------------------------------
+
+
 // Test de getUserByName
 describe("Récupère un user grâce à son name", () => {
   it("", () => {
@@ -50,7 +58,9 @@ describe("Récupère un user grâce à son name", () => {
   });
 });
 
+
 // ------------------------------
+
 
 // Test de getAllUsers
 describe("Test de récupération de tous les utlisateurs", () => {
