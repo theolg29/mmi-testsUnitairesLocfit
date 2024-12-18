@@ -1,0 +1,407 @@
+/*Page du catalogue*/
+
+.ariane {
+    font-size: 16px;
+    margin-right: 150px;
+}
+
+.ariane a {
+    text-decoration: none;
+    color: #3f3f3f;
+    margin-right: 5px;
+}
+
+.ariane span {
+    margin: 0 5px;
+    color: #333;
+}
+
+.ariane .current {
+    font-weight: bold;
+    color: #333;
+}
+
+.gras{
+    font-weight: bold;
+}
+
+
+.location-guide {
+    text-align: center;
+}
+
+.location-guide h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.step {
+    background-color: white;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 14px;
+    color: #665;
+}
+
+.petittitre{
+    text-align: center;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+}
+
+.image-container {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info {
+    margin-top: 15px;
+}
+
+.info h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.price-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 16px;
+    color: #333;
+}
+
+.btn {
+    background-color: #fcbf23;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e0a91c;
+}
+
+.titreenbas{
+    text-align: center;
+}
+
+/*Page de contact */
+
+
+
+.toutelapage {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d9d9d9;
+}
+
+.contact-card {
+    display: flex;
+    width: 800px;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    padding: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contact-info {
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.contact-details {
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    max-width: 500px; 
+    margin: 0 auto; 
+}
+
+
+
+.contact-details img{
+    width: 30px; 
+    height: 30px;
+    margin-left: 10px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 45%; 
+}
+
+.social-item img {
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px; 
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    color: #000;
+    font-weight: bold;
+}
+
+.social-item span {
+    font-size: 16px;
+}
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.location {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.location p {
+    display: flex;
+    align-items: center;
+}
+
+.rectangle{
+        width  : 270px;
+        height : 190px;
+        background : rgb(183, 183, 183);  
+        margin-left: -100px;
+        margin-top: 70px;
+}
+.location img{
+    height: 60px;
+    width: 60px;
+    margin-left: -20px;
+}
+
+
+/*Page de confirmation de la commande*/
+
+.lapagevalidation{
+    font-family: Arial, sans-serif;
+    background-color: #D9D9D9;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.Recap_commande {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+recapH1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.pdf-viewer {
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+}
+
+.actions button.validate {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.actions button.reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.actions button:hover {
+    opacity: 0.9;
+}
+
+.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.link p {
+    margin: 0;
+}
+
+.link a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.formcontainer{
+    margin-bottom: 40px;
+}
+
+
+.btninscription{
+    background-color: #198900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btninscription:hover {
+    background-color: #20b100;
+}
+
+.btnsuprimerlecompte {
+    text-align: center;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.deuxbtncompte{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.panier-btn{
+    background-color: #198900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+.panier-btn:hover {
+    background-color: #20b100;
+}
+
+.boutonbleuorder-btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #198900;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

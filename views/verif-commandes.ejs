@@ -1,0 +1,183 @@
+<%- include('header'); -%>
+    <div class="space"></div>
+    <div class="banner">
+        <h2>Locations</h2>
+    </div>
+
+    <div class="container-locations">
+        <h1 id="text" class="gradient">Locations en attente de validation</h1>
+
+        <div class="cards-container">
+            
+            <% locations_wait.forEach(function(element) { %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <%= element.prenom %>
+                                <%= element.nom %>
+                        </h2>
+                        <span class="status validation">En attente</span>
+                    </div>
+                    <div class="card-body">
+                        <% const an=element.ddn.getFullYear() %>
+                            <% const nbyears=2024- an %>
+                                <p><strong>Âge:</strong>
+                                    <%= nbyears %> ans
+                                </p>
+                                <p><strong>Email:</strong>
+                                    <%= element.email %>
+                                </p>
+                                <p><strong>Date de réservation:</strong>
+                                    <%= element.date_debut.getUTCDate()%>/<%= element.date_debut.getMonth()%>/<%=
+                                                element.date_debut.getFullYear()%> - <%=
+                                                    element.date_retour_prevue.getUTCDate()%>/<%=
+                                                        element.date_retour_prevue.getMonth()%>/<%=
+                                                            element.date_retour_prevue.getFullYear()%>
+                                </p>
+                                <p><strong>Produit sélectionné:</strong>
+                                    <%= element.type %>
+                                        <%= element.modele %>
+                                </p>
+
+                    </div>
+                    <div class="card-footer">
+                        <form action="/accept-commande" method="post">
+                            <input type="hidden" name="id_product" value="<%= element.produit_id %>">
+                            <input type="hidden" name="id_user" value="<%= element.utilisateur_id %>">
+                            <button type="submit" class="button validate">Valider</button>
+                        </form>
+                        <form action="/delete-commande" method="post">
+                            <input type="hidden" name="id_product" value="<%= element.produit_id %>">
+                            <input type="hidden" name="id_user" value="<%= element.utilisateur_id %>">
+                            <button type="submit" class="button delete">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <h1 id="text" class="gradient">Locations en cours</h1>
+        <div class="cards-container">
+            <% locations_progress.forEach(function(element) { %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <%= element.prenom %>
+                                <%= element.nom %>
+                        </h2>
+                        <span class="status in-progress">En cours</span>
+                    </div>
+                    <div class="card-body">
+                        <% const an=element.ddn.getFullYear() %>
+                            <% const nbyears=2024- an %>
+                                <p><strong>Âge:</strong>
+                                    <%= nbyears %> ans
+                                </p>
+                                <p><strong>Email:</strong>
+                                    <%= element.email %>
+                                </p>
+                                <p><strong>Date de réservation:</strong>
+                                    <%= element.date_debut.getUTCDate()%>/<%= element.date_debut.getMonth()%>/<%=
+                                                element.date_debut.getFullYear()%> - <%=
+                                                    element.date_retour_prevue.getUTCDate()%>/<%=
+                                                        element.date_retour_prevue.getMonth()%>/<%=
+                                                            element.date_retour_prevue.getFullYear()%>
+                                </p>
+                                <p><strong>Produit sélectionné:</strong>
+                                    <%= element.type %>
+                                        <%= element.modele %>
+                                </p>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/finalise-commande" method="post">
+                            <input type="hidden" name="id_product" value="<%= element.produit_id %>">
+                            <input type="hidden" name="dating" value="<%= element.date_retour_prevue %>">
+                            <input type="hidden" name="id_user" value="<%= element.utilisateur_id %>">
+                            <input type="checkbox" id="age-confirmation" name="confirmation" required>
+                            <label for="confirmation">Confirmation de rendu</label>
+                            <label for="effectif">Retour effectif</label>
+                            <input type="date" id="start" name="effectif" required>
+                            <button type="submit" class="button validate">Finaliser</button>
+                        </form>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+        <h1 id="text" class="gradient">Locations terminées</h1>
+        <div class="cards-container">
+            <% locations_end.forEach(function(element) { %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <%= element.prenom %>
+                                <%= element.nom %>
+                        </h2>
+                        <span class="status finished">Terminée</span>
+                    </div>
+                    <div class="card-body">
+                        <% const an=element.ddn.getFullYear() %>
+                            <% const nbyears=2024- an %>
+                                <p><strong>Âge:</strong>
+                                    <%= nbyears %> ans
+                                </p>
+                                <p><strong>Email:</strong>
+                                    <%= element.email %>
+                                </p>
+                                <p><strong>Date de réservation:</strong>
+                                    <%= element.date_debut.getUTCDate()%>/<%= element.date_debut.getMonth()%>/<%=
+                                                element.date_debut.getFullYear()%> - <%=
+                                                    element.date_retour_prevue.getUTCDate()%>/<%=
+                                                        element.date_retour_prevue.getMonth()%>/<%=
+                                                            element.date_retour_prevue.getFullYear()%>
+                                </p>
+                                <p><strong>Produit sélectionné:</strong>
+                                    <%= element.type %>
+                                        <%= element.modele %>
+                                </p>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+
+
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const openPopupBtns = document.querySelectorAll(".order-btn");
+            const closePopupBtns = document.querySelectorAll(".close");
+
+            openPopupBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const popupId = btn.getAttribute("data-popup-id");
+                    const popup = document.getElementById(`popup_${popupId}`);
+                    popup.style.display = "flex"; // Affiche le popup
+                });
+            });
+
+            closePopupBtns.forEach((btn) => {
+                btn.addEventListener("click", (event) => {
+                    const popup = event.target.closest(".popup");
+                    popup.style.display = "none"; // Ferme le popup
+                });
+            });
+
+            // Fermer le popup en cliquant en dehors du contenu
+            window.addEventListener("click", (event) => {
+                document.querySelectorAll(".popup").forEach((popup) => {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+
+    <%- include('footer'); -%>
