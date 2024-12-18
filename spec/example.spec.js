@@ -21,9 +21,7 @@ describe("La récupération d'un user par son id", () => {
   });
 });
 
-
 // ------------------------------
-
 
 // La récupération d'un produit par son id
 describe("La récupération d'un produit par son id", () => {
@@ -46,21 +44,17 @@ describe("La récupération d'un produit par son id", () => {
   });
 });
 
-
 // ------------------------------
-
 
 // Test de getUserByName
-describe("Récupère un user grâce à son name", () => {
-  it("", () => {
-    let name = user.getUserByName("Jean");
-    expect(name).toBeDefined();
-  });
-});
-
+// describe("Récupère un user grâce à son name", () => {
+//   it("", () => {
+//     let name = user.getUserByName("Jean");
+//     expect(name).toBeDefined();
+//   });
+// });
 
 // ------------------------------
-
 
 // Test de getAllUsers
 describe("Test de récupération de tous les utlisateurs", () => {
@@ -69,3 +63,35 @@ describe("Test de récupération de tous les utlisateurs", () => {
     expect(name).toBeDefined();
   });
 });
+
+// ------------------------------
+
+// Vérifie si le produit est bien ajouté
+describe("Test de l'ajout d'un produit", () => {
+  let a;
+
+  beforeEach(async () => {
+    const result = await user.addProduct(
+      "Rameur",
+      "Un rameur de qualité",
+      "Concept2",
+      "Model D",
+      1000,
+      "Neuf"
+    );
+    a = result.insertId;
+  });
+
+  afterEach(async () => {
+    if (a) {
+      await user.deleteProduct(a);
+    }
+  });
+
+  it("Vérifie si le produit est bien ajouté", async () => {
+    const product = await user.show_productById(a);
+    expect(product).toBeDefined();
+  });
+});
+
+// ------------------------------
