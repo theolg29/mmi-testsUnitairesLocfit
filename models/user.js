@@ -62,7 +62,7 @@ async function show_product() {
       if (err) {
         return reject(err);
       }
-      resolve(results); 
+      resolve(results);
     });
   });
 }
@@ -74,7 +74,7 @@ async function show_productById(id) {
       if (err) {
         return reject(err);
       }
-      resolve(results[0]); 
+      resolve(results[0]);
     });
   });
 }
@@ -239,8 +239,6 @@ async function HowManyDaysWhenPrice(idProduct, idClient) {
 }
 
 async function calculateTotalPrice(nbjours, basePrice) {
-
-
   let totalPrice = 0;
 
   if (nbjours <= 3) {
@@ -268,12 +266,14 @@ async function calculateTotalPrice(nbjours, basePrice) {
     totalPrice += basePrice * 0.2;
   }
 
-
-
   return Math.round(totalPrice * 100) / 100;
 }
 
-async function calculateSurcout(retour_prevue_produit, retour_effectif_produit, prix) {
+async function calculateSurcout(
+  retour_prevue_produit,
+  retour_effectif_produit,
+  prix
+) {
   let totalPrice = prix;
 
   // Conversion des dates
@@ -289,19 +289,15 @@ async function calculateSurcout(retour_prevue_produit, retour_effectif_produit, 
     return Math.round(totalPrice * 100) / 100;
   }
 
-  
   for (let i = 0; i < nbjours; i++) {
     totalPrice += prix * 0.2; // +20% par jour
   }
 
-  return Math.round(totalPrice * 100) / 100; 
+  return Math.round(totalPrice * 100) / 100;
 }
 
-
-
 async function ShowPrixDeLoc(idProduct) {
-  const sql =
-    "SELECT * FROM produit WHERE id = ?";
+  const sql = "SELECT * FROM produit WHERE id = ?";
   const values = [idProduct];
 
   return new Promise((resolve, reject) => {
@@ -314,8 +310,13 @@ async function ShowPrixDeLoc(idProduct) {
   });
 }
 
-
-async function addPanier(idProduct, idClient, dateDebut, dateRetourPrevue, elprecio) {
+async function addPanier(
+  idProduct,
+  idClient,
+  dateDebut,
+  dateRetourPrevue,
+  elprecio
+) {
   try {
     // Calculer le nombre de jours entre dateDebut et dateRetourPrevue
     const dateDebutObj = new Date(dateDebut);
@@ -324,7 +325,7 @@ async function addPanier(idProduct, idClient, dateDebut, dateRetourPrevue, elpre
     const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
     // Calculer le prix total en utilisant le nombre de jours et le prix de base (ex. 15)
-    console.log("ceci est le precio : ", elprecio)
+    console.log("ceci est le precio : ", elprecio);
     const basePrice = elprecio;
     const totalPrice = await calculateTotalPrice(days, basePrice);
 
@@ -516,7 +517,7 @@ async function finish_location(idClient, idProduct) {
   const sql = `
         UPDATE location SET status = "finished" WHERE utilisateur_id = ? AND produit_id = ?; 
       `;
-const values = [idClient, idProduct]
+  const values = [idClient, idProduct];
   return new Promise((resolve, reject) => {
     bdd.query(sql, values, (err, results) => {
       if (err) {
@@ -582,7 +583,7 @@ async function ShowSurcout(idUser) {
       `;
 
   return new Promise((resolve, reject) => {
-    bdd.query(sql,idUser, (err, results) => {
+    bdd.query(sql, idUser, (err, results) => {
       if (err) {
         return reject(err);
       }
@@ -624,5 +625,5 @@ module.exports = {
   ShowPrixDeLoc,
   calculateSurcout,
   AddSurcout,
-  ShowSurcout
+  ShowSurcout,
 };
