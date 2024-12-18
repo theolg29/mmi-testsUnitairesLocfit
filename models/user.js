@@ -22,6 +22,7 @@ async function getAllUsers() {
         return reject(err);
       }
       resolve(results);
+      console.log(results);
     });
   });
 }

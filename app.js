@@ -35,7 +35,8 @@ app.use(function (req, res, next) {
 });
 
 // Routes
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
+  console.log(userModel.getAllUsers());
   res.render("index");
 });
 
