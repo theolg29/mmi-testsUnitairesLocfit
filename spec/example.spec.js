@@ -21,6 +21,8 @@ describe("La récupération d'un user par son id", () => {
   });
 });
 
+// ------------------------------
+
 // Test de getUserByName
 describe("Récupère un user grâce à son name", () => {
   it("", () => {
@@ -29,11 +31,12 @@ describe("Récupère un user grâce à son name", () => {
   });
 });
 
+// ------------------------------
+
 // Test de getAllUsers
 describe("Test de récupération de tous les utlisateurs", () => {
   it("Vérifie si il y a des utilisateurs", () => {
     let name = user.getAllUsers();
     expect(name).toBeDefined();
-    console.log(name);
   });
 });
